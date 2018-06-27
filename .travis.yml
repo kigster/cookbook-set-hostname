@@ -1,0 +1,30 @@
+sudo: required
+dist: trusty
+addons:
+  apt:
+    sources:
+    - chef-current-trusty
+    packages:
+    - chefdk
+branches:
+  only:
+  - master
+env:
+  matrix:
+  - INSTANCE=smoke-ubuntu-1604
+  - INSTANCE=smoke-ubuntu-1704
+  global:
+    secure: xKhGOGrYQiTpJ/Y7xJ+IhgaLdNbwepUGhUhWm30wDtooqKAyAVC6JBxLsCJLBpBXlpP1cmyb5XlkejWrfDXD/rdl5khRZG8pRiFsm3Kfga5L/nWeef+XLfgtwinZMFcXaI/ejD3wxqrGOiP41JEx79xnrVmLBdDePLjI7vU2ZFRZIrNL8zgjVig6A0XorC845m2RdgT7CumjXYnWNYpEOJa/ClhUozUxw5pDvKPSpT40wL5pUr5G6GiKjHiY1nw34sjdNT1P5vKIJ7RuULnzEdaB9MFYwT2iByCVp0dLH1tsfABnDOFylUGY5ALsTjn48TTUeFi+V8HmjmXOJws5URpxPiKKmEtmqSlgo5+0ay+OO6ZOEt5KRoaxTZZPzgI1cbeWqPygIkhiTrYn8qZXfFxSHq57bi3T3lWBD2J9hQfOIaGA2vjSEkRWJIhyqwKlk14iR9wEb7q0LJRpbN9vAEyeEP2MBGH7qGBDFY+oXk806rm01F69dIq/NlibR44jvHEDsnWc8AkCr9ziNv9sACR175B0mP6jnMij9nmGG6ukYxj1enTw9lzTJBqG4Gs10nJJZJfZUM6huTsktf6ra8RICqZqH+0k+f/0W4VD8T0TbqOWCSW0dTuiQJbZ9ysUrcMib5WNIk9MKHS+snnzX1TXQdoCnkFAEVkqQ/zCsjM=
+before_script:
+- eval "$(chef shell-init bash)"
+- chef --version
+- cookstyle --version
+- foodcritic --version
+- bundle
+- berks
+script:
+- chef exec rspec
+matrix:
+  include:
+  - script:
+    - chef exec rspec
