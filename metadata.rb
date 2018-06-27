@@ -2,7 +2,7 @@ name 'set-hostname'
 maintainer 'Konstantin Gredeskoul'
 maintainer_email 'kigster@gmail.com'
 license 'MIT'
-version '1.0.1'
+version '1.0.6'
 
 description 'Sets the hostname on a node and updates the hosts file.'
 long_description <<~EOF

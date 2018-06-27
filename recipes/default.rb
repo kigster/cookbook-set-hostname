@@ -10,3 +10,8 @@ end
 ohai 'reload' do
   action :reload
 end
+
+host = node_host(node)
+
+node.override['fqdn'] = host.fqdn
+node.override['domain'] = host.domain

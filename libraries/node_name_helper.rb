@@ -11,6 +11,10 @@ class Chef
       Socket.gethostbyname(Socket.gethostname).first
     end
 
+    def current_hostname
+      %x[hostname]
+    end
+
     def node_host(node)
       NodeHost.new(
         node['set-hostname']['name'] || node.name,
@@ -19,11 +23,12 @@ class Chef
       )
     end
 
-    def node_fqdn(node)
-      node_host(node).fqdn
+    def node_fqdn(node = nil)
+      this = node || (respond_to?(:node) ? node : self)
+      node_host(this).fqdn
     end
   end
 
   Recipe.include(NodeNameHelper)
-  Resource::Execute.include(NodeNameHelper)
+  Resource.include(NodeNameHelper)
 end
