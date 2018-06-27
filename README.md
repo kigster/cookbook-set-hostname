@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/kigster/set-hostname-cookbook.svg?branch=master)](https://travis-ci.org/kigster/set-hostname-cookbook)
+
 # Set Hostname
 
 This simple cookbook sets the hostname on a given host using the `node.name` as the default name, and appending any domain, if provided, for the fully qualified domain name of the host.
