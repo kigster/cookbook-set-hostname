@@ -6,6 +6,8 @@ This simple cookbook sets the hostname on a given host using the `node.name` as 
 
 It also populates the file `/etc/hosts` file.
 
+> NOTE: this cookbook works well with [DnsMadeEasy](https://github.com/kigster/dnsmadeeasy-cookbook) cookbook, that can automatically register the new hostname with DnsMadeEasy.com.
+
 ## Attributes
 
 You can set the following attributes:
