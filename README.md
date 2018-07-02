@@ -11,19 +11,24 @@ It also populates the file `/etc/hosts` file.
 You can set the following attributes:
 
 ```ruby
-node.normal['set-hostname']['name']           = 'foo' 
 node.normal['set-hostname']['domain']         = 'bar.com'
-node.normal['set-hostname']['ip']             = '1.2.3.4'
-node.normal['set-hostname']['hosts-file']     = '/etc/hosts' 
 ```
 
-This will result in the hostname set to `foo.bar.com` and the IP address in the `/etc/hosts` file will be `1.2.3.4`. 
+The following attributes are inferred automaticaly, but can also be overridden by the user:
+
+```ruby
+default['set-hostname']['hosts-file'] = '/etc/hosts'
+default['set-hostname']['name'] = node.name
+default['set-hostname']['ip'] = node['ipaddress']
+```
+
+For a node with the name `foo001`, the above configuration will result in the hostname set to `foo.bar.com` and the IP address in the `/etc/hosts` file will be `1.2.3.4`. 
 
 ### Default Attributes
 
 The cookbook only requires that you set the domain portion of the name. 
 
-In that case, the actual hostname portion is inferred from the `node.name`, and the IP address is taken from `node['ipaddress']`.
+In that case, the actual hostname portion is inferred from the `node.name`, and the IP address is taken from `node['ipaddress']` unless provided specifically by the  `node['set-hostname']['ip]` attribute.
 
 If you do not provide the domain name, the host is configured without the FQDN.
 

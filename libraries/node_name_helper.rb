@@ -19,7 +19,7 @@ class Chef
       NodeHost.new(
         node['set-hostname']['name'] || node.name,
         node['set-hostname']['ip'] || node['ipadddress'],
-        node['set-hostname']['domain'] || node['fqdn']
+        node['set-hostname']['domain']
       )
     end
 
