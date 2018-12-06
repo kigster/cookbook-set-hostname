@@ -1,10 +1,10 @@
-[![Build Status](https://travis-ci.org/kigster/set-hostname-cookbook.svg?branch=master)](https://travis-ci.org/kigster/set-hostname-cookbook)
+[![Build Status](https://travis-ci.org/kigster/cookbook-set-hostname.svg?branch=master)](https://travis-ci.org/kigster/cookbook-set-hostname)
 
 # Set Hostname
 
 This simple cookbook sets the hostname on a given host using the `node.name` as the default name, and appending any domain, if provided, for the fully qualified domain name of the host.
 
-It also populates the file `/etc/hosts` file.
+It also populates the file `/etc/hosts` and `/etc/hostname` files.
 
 > NOTE: this cookbook works well with [DnsMadeEasy](https://github.com/kigster/dnsmadeeasy-cookbook) cookbook, that can automatically register the new hostname with DnsMadeEasy.com.
 
@@ -13,7 +13,7 @@ It also populates the file `/etc/hosts` file.
 You can set the following attributes:
 
 ```ruby
-node.normal['set-hostname']['domain']         = 'bar.com'
+node.normal['set-hostname']['domain'] = 'bar.com'
 ```
 
 The following attributes are inferred automaticaly, but can also be overridden by the user:
@@ -36,7 +36,7 @@ If you do not provide the domain name, the host is configured without the FQDN.
 
 ### Contributing
 
-To contribute, please [fork](https://github.com/kigster/set-hostname-cookbook/fork) the cookbook and submit a pull request.
+To contribute, please [fork](https://github.com/kigster/cookbook-set-hostname/fork) the cookbook and submit a pull request.
 
 ## License
 

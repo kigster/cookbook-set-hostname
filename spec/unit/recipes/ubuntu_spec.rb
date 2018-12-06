@@ -45,4 +45,12 @@ eof
       expect(chef_run).to render_file('/etc/hosts').with_content(etc_host)
     end
   end
+
+  context '/etc/hostname is correct' do
+    let(:etc_hostname) { 'chefspec.bar.com' }
+
+    it 'updates /etc/hostname' do
+      expect(chef_run).to render_file('/etc/hostname').with_content(etc_hostname)
+    end
+  end
 end
