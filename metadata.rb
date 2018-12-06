@@ -3,7 +3,7 @@ maintainer 'Konstantin Gredeskoul'
 maintainer_email 'kigster@gmail.com'
 license 'MIT'
 
-version '1.2.0'
+version '1.2.1'
 
 description 'Sets the hostname on a node and updates the hosts file.'
 long_description <<~EOF

@@ -18,6 +18,10 @@ describe 'set-hostname::ubuntu' do
     end.converge(described_recipe)
   end
 
+  # before do
+  #   stub_command('grep \'preserve_hostname: false\' /etc/cloud/cloud.cfg')
+  # end
+
   context 'Converges on Ubuntu 16.04' do
     it 'converges successfully' do
       expect { chef_run }.to_not raise_error

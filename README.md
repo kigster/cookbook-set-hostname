@@ -34,6 +34,16 @@ In that case, the actual hostname portion is inferred from the `node.name`, and 
 
 If you do not provide the domain name, the host is configured without the FQDN.
 
+### Automatic Reboot
+
+If the hostname was changed, the cookbook will trigger a delayed reboot, but only if this attribute is set to true:
+
+```ruby
+default['set-hostname']['allow-reboot-if-changed'] = true
+```
+
+The default is false.
+
 ### Contributing
 
 To contribute, please [fork](https://github.com/kigster/cookbook-set-hostname/fork) the cookbook and submit a pull request.
